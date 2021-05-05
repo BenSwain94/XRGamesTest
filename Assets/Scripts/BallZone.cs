@@ -18,6 +18,9 @@ public class BallZone : MonoBehaviour
 
 	[SerializeField] Door doorToOpen;
 
+	[SerializeField] GameObject starPrefab;
+	[SerializeField] Transform starSpawnPos;
+
 	private void Start()
 	{
 		mat = GetComponent<MeshRenderer>().material;
@@ -51,9 +54,15 @@ public class BallZone : MonoBehaviour
 		if (ballsNeeded == ballsHerded)
 		{
 			mat.color = success;
-			doorToOpen.DoorOpen = true;
+			doorToOpen.OpenDoor();
+			SpawnStar();
 		}
 		else
 			mat.color = fail;
+	}
+
+	void SpawnStar()
+	{
+		Instantiate(starPrefab, starSpawnPos.position, Quaternion.identity);
 	}
 }

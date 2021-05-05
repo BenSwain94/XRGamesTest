@@ -16,8 +16,8 @@ TagManager:
   - PostProcessing
   - Player
   - Ground_Obstacles
-  - 
-  - 
+  - Interactables
+  - PlayerBarriers
   - 
   - 
   - 

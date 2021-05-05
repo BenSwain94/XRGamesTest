@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[SelectionBase]
 public class MovingPlatform : MonoBehaviour
 {
     [SerializeField] Transform[] points;
@@ -10,7 +11,11 @@ public class MovingPlatform : MonoBehaviour
 
     bool point1reached = false;
 
-    // Update is called once per frame
+	/// <summary>
+	/// Moves the platform from one target to another and then repeats over and over, 
+	/// once the player jumps ontop of the platform, they are parented to it
+	/// and unparented when they leave
+	/// </summary>
     void Update()
     {
 		if (!point1reached)

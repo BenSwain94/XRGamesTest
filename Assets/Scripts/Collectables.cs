@@ -6,6 +6,15 @@ using UnityEngine.UI;
 public class Collectables : MonoBehaviour
 {
 	private int playerScore = 0;
+
+	public int PlayerScore
+	{
+		get
+		{
+			return playerScore;
+		}
+	}
+
 	Text scoreText;
 
 	private void Start()
@@ -19,6 +28,7 @@ public class Collectables : MonoBehaviour
 		if (other.GetComponent<Pickup>() != null)
 		{
 			CollectItem(other.GetComponent<Pickup>().GetPickedUp());
+			other.GetComponent<AudioSource>().Play();
 		}
 	}
 
